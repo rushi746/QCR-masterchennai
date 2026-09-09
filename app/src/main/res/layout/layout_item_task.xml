@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginBottom="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/rounded_corner_light_blue_filled"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_load_label">
+
+        <TextView
+            android:id="@+id/cont_no_label"
+            style="@style/LabelText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="CONT NO - "
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/cont_no_value"
+            style="@style/ValueText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BEAU5684557"
+            app:layout_constraintStart_toEndOf="@+id/cont_no_label"
+            app:layout_constraintTop_toTopOf="@+id/cont_no_label" />
+
+        <TextView
+            android:id="@+id/location_label"
+            style="@style/LabelText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="LOCATION - "
+            app:layout_constraintStart_toStartOf="@+id/cont_no_label"
+            app:layout_constraintTop_toBottomOf="@+id/cont_no_label" />
+
+        <TextView
+            android:id="@+id/location_value"
+            style="@style/ValueText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CY-07-EXAM02"
+            app:layout_constraintStart_toEndOf="@+id/location_label"
+            app:layout_constraintTop_toTopOf="@id/location_label" />
+
+        <TextView
+            android:id="@+id/vehicle_label"
+            style="@style/LabelText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="410dp"
+            android:layout_marginTop="4dp"
+            android:text="VEH - "
+            app:layout_constraintStart_toStartOf="@+id/cont_no_label"
+            app:layout_constraintTop_toTopOf="@+id/cont_no_label" />
+
+        <TextView
+            android:id="@+id/vehicle_value"
+            style="@style/ValueText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="BEAU5684557"
+            app:layout_constraintStart_toEndOf="@+id/vehicle_label"
+            app:layout_constraintTop_toTopOf="@+id/vehicle_label" />
+
+        <TextView
+            android:id="@+id/tat_label"
+            style="@style/LabelText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="410dp"
+            android:text="TAT - "
+            app:layout_constraintStart_toEndOf="@+id/location_label"
+            app:layout_constraintStart_toStartOf="@+id/location_label"
+            app:layout_constraintTop_toTopOf="@id/location_label" />
+
+        <TextView
+            android:id="@+id/tat_value"
+            style="@style/ValueText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="000:53"
+            app:layout_constraintStart_toEndOf="@+id/tat_label"
+            app:layout_constraintTop_toTopOf="@+id/tat_label" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_load_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corner_black_filled"
+        android:paddingStart="40dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="40dp"
+        android:paddingBottom="5dp"
+        android:text="Load"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

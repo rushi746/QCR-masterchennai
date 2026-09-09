@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/dialog_cont_no_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:padding="10dp"
+        android:text="Cont No:"
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/container_no_text"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corner_with_outline"
+        android:padding="10dp"
+        android:ems="10"
+        android:hint="Cont no"
+        android:inputType="number"
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        android:textAllCaps="true"
+        app:layout_constraintStart_toEndOf="@+id/dialog_cont_no_label"
+        app:layout_constraintTop_toTopOf="@+id/dialog_cont_no_label" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="(Enter only last 5 digits)"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/container_no_text"
+        app:layout_constraintTop_toBottomOf="@+id/container_no_text" />
+
+    <TextView
+        android:id="@+id/dialog_loc_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:padding="10dp"
+        android:text="Location:"
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/dialog_cont_no_label"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/dialog_loc_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="CY-07-D:7:4"
+        android:textColor="@color/purple_700"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/dialog_loc_label"
+        app:layout_constraintTop_toTopOf="@+id/dialog_loc_label" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/container_list"
+        android:layout_width="500dp"
+        android:layout_height="0dp"
+        android:padding="5dp"
+        android:background="@color/gray"
+        android:layout_marginStart="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/dialog_btn_cancel"
+        app:layout_constraintStart_toEndOf="@+id/container_no_text"
+        app:layout_constraintTop_toTopOf="@+id/container_no_text" />
+
+    <Button
+        android:id="@+id/dialog_btn_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="62dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/button_background"
+        android:backgroundTint="@color/green"
+        android:paddingStart="30dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="30dp"
+        android:paddingBottom="10dp"
+        android:text="Submit"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:enabled="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/dialog_loc_label"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_loc_label" />
+
+    <Button
+        android:id="@+id/dialog_btn_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="164dp"
+        android:backgroundTint="@color/red"
+        android:paddingStart="30dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="30dp"
+        android:paddingBottom="12dp"
+        android:text="Cancel"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/dialog_btn_submit"
+        app:layout_constraintStart_toStartOf="@+id/dialog_loc_label"
+        app:layout_constraintTop_toTopOf="@+id/dialog_btn_submit" />
+
+    <include
+        android:id="@+id/loading_bar"
+        layout="@layout/loading_bar_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

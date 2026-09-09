@@ -1,0 +1,112 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
+}
+
+def versionMajor = 1
+def versionMinor = 0
+def versionPatch = 1
+
+android {
+    namespace 'com.example.newapp'
+    compileSdk 34
+
+    def calculateVersionCode = { ->
+        return versionMajor*100000 + versionMinor*1000 + versionPatch
+    }
+
+    def getVersionName={->
+        return "${versionMajor}.${versionMinor}.${versionPatch}"
+    }
+
+    defaultConfig {
+        applicationId "com.example.newapp"
+        minSdk 21
+        targetSdk 33
+        versionCode calculateVersionCode()
+        versionName getVersionName()
+        archivesBaseName = "CSR-"+versionName
+        multiDexEnabled = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file("signing/debug.keystore")
+        }
+        release {
+            storeFile file("signing/KeyStore.jks")
+            storePassword "qikkle@123"
+            keyAlias "qikkle"
+            keyPassword "qikkle@123"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    flavorDimensions 'client'
+    productFlavors {
+        dev {
+            dimension 'client'
+            resValue "string", "app_name", "CSR-dev"
+            applicationIdSuffix '.dev'
+            buildConfigField 'String', 'BASE_URL', '"http://117.239.10.236:8081/DICTService/api/"'
+        }
+
+        dict {
+            dimension 'client'
+            resValue "string", "app_name", "CSR-dict"
+            applicationIdSuffix '.dict'
+            buildConfigField 'String', 'BASE_URL', '"https://dictrfid.ict.in/DICTService/api/"'
+        }
+
+        production {
+            dimension 'client'
+            resValue "string", "app_name", "CSR"
+            buildConfigField 'String', 'BASE_URL', '"http://103.138.22.244:9090/EKLAVYA/"'
+        }
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.10.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.google.firebase:firebase-database:20.0.5'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    //Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.5.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    //ViewModel
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0'
+
+    //Firebase
+    implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
+    implementation("com.google.firebase:firebase-analytics")
+}
